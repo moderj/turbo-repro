@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "ignorePaths": ["node_modules", "dist", "coverage", "pnpm-lock.yaml"],
+  "language": "en",
+  "noConfigSearch": true,
+  "words": [
+    "depcheckrc",
+    "secretlintrc",
+    "biomejs",
+    "contributorsrc",
+    "corepack",
+    "davidbk",
+    "depcheck",
+    "depcheckrc",
+    "Filenaming",
+    "kalifa",
+    "moderj",
+    "tsup",
+    "vitest"
+  ]
+}

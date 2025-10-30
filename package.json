@@ -1,0 +1,28 @@
+{
+  "name": "org",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
+  "engines": {
+    "node": ">=22.6.0",
+    "pnpm": ">=10.15.0"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "test": "pnpm db:local && turbo test --affected",
+    "test-ci": "pnpm db:local && turbo test-ci --affected",
+    "db:local": "docker compose -f compose.db.yaml up -d mongodb",
+    "lint": "biome check --write .",
+    "check": "biome check .",
+    "check-ci": "biome ci . && turbo check-ci --affected",
+    "add-change": "changeset",
+    "release": "changeset version && changeset publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.2",
+    "@changesets/cli": "^2.29.4",
+    "@types/node": "^24.0.13",
+    "turbo": "2.5.9-canary.8",
+    "typescript": "5.7.3"
+  }
+}

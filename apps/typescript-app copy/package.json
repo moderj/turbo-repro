@@ -1,0 +1,51 @@
+{
+  "name": "typescript-app-1",
+  "description": " A template to bootstrap the creation of a TypeScript App",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=22.6.0",
+    "pnpm": ">=10.15.0"
+  },
+  "scripts": {
+    "start": "tsx --env-file=.env src/index.ts",
+    "dev": "tsx watch --env-file=.env.dev src/index.ts",
+    "build": "rm -r dist/* || true && tsc",
+    "clean": "rm -r node_modules || true",
+    "test": "pnpm run test:unit",
+    "test:unit": "vitest run test/unit",
+    "test:integration": "NODE_ENV=integration vitest run test/integration",
+    "test-all": "NODE_ENV=integration vitest run .",
+    "test-ci": "NODE_ENV=ci vitest run .",
+    "test-coverage": "pnpm run test:unit --coverage",
+    "test-coverage-all": "pnpm run test-all --coverage",
+    "test-coverage-ci": "pnpm run test-ci --coverage",
+    "check-ci": "pnpm run '/^check:.*/'",
+    "check:types": "tsc -p tsconfig.lint.json --noEmit",
+    "check:spell": "cspell lint .",
+    "check:security": "pnpm audit --audit-level=moderate",
+    "check:dep": "depcheck --config .config/.depcheckrc.yaml",
+    "check:secrets": "secretlint --secretlintignore .gitignore --secretlintrc .config/.secretlintrc.json '**/*'"
+  },
+  "author": "davidbk",
+  "license": "ISC",
+  "devDependencies": {
+    "@org/typescript-config": "workspace:*",
+    "@secretlint/secretlint-rule-preset-recommend": "^8.2.4",
+    "@types/node": "^22.13.4",
+    "@vitest/coverage-v8": "^3.0.4",
+    "cspell": "^8.13.3",
+    "depcheck": "^1.4.7",
+    "secretlint": "^8.2.4",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4",
+    "vitest": "^3.0.4"
+  },
+  "dependencies": {
+    "elastic-apm-node": "^4.11.0",
+    "mongodb": "^6.14.2"
+  }
+}
