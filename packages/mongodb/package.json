@@ -1,0 +1,35 @@
+{
+  "name": "@org/mongodb",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=22.6.0",
+    "pnpm": ">=10.15.0"
+  },
+  "exports": {
+    "./operations": "./dist/operations.js",
+    "./client": "./dist/client.js",
+    "./helpers": "./dist/helpers.js",
+    "./utils": "./dist/utils.js",
+    "./schema": "./dist/schema.js"
+  },
+  "scripts": {
+    "build": "rm -r ./dist/* || true && tsc"
+  },
+  "devDependencies": {
+    "@org/typescript-config": "workspace:*",
+    "@types/node": "^22.13.4",
+    "zod": "^3.24.3"
+  },
+  "dependencies": {
+    "@org/logger": "workspace:*",
+    "mongodb": "^6.8.1",
+    "socks": "^2.8.3"
+  }
+}

@@ -1,0 +1,3 @@
+{
+	"extends": "@org/typescript-config/backend"
+}
